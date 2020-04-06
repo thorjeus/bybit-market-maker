@@ -12,5 +12,11 @@ pip install pybit
 ```
 Next, clone or download this repository and extract. Modify `settings.py` to your liking, navigate to the project via CLI, and `python run.py`.
 
+## How It Works
+- A given number of long and short orders are spaced evenly from the current last price up to a user-defined range. The last price at the time of placement is considered the *median*. 
+- If a single side of orders begins to fill, the bot waits for the price to return to the *median* and will cancel the rest of the unfilled orders.
+- Close orders are submitted and a conditional stop loss is set at near-breakeven.
+- This strategy has little-to-no risk management. If all orders on a given side fill and the price continues in that direction, there is a liqiudation risk.
+
 ## Disclaimer
 *This project is still in the early stages of development. Please refrain from using the bot on livenet until it is stable!*
