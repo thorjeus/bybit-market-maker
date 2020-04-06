@@ -1,2 +1,2 @@
 # bybit-market-maker
-Sample market maker bot for ByBit.
+A simple market maker bot for Bybit. Based on the `pybit` module.
