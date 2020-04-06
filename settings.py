@@ -1,8 +1,8 @@
 TICKER = 'BTCUSD'
 
-NUM_OF_ORDERS = 10 # maximum is 50
-SPREAD = 100 # in USD
-MARGIN = 20 # in percent
+NUM_OF_ORDERS = 20 # maximum is 50
+SPREAD = 200 # in USD
+MARGIN = 10 # in percent
 
 ORDER_RESET_TIME = 60*5 # in seconds
 

@@ -46,9 +46,6 @@ class Requests:
             subscriptions=[f'instrument_info.100ms.{TICKER}', 'position', 
                 'order'])
 
-        # Await connection.
-        time.sleep(3)
-
     def place_initial_orders(self, last_price, prices, quantity):
         responses = []
         self.set_to_cross()
@@ -108,6 +105,9 @@ class Requests:
         self.session.set_trading_stop(TICKER, 
             stop_loss=self.get_position()[TICKER]['entry_price'])
 
+    def _test_sub(self):
+        return self.ws.fetch(f'instrument_info.100ms.{TICKER}')
+
 class Algorithm:
 
     def __init__(self):
@@ -156,7 +156,7 @@ class Algorithm:
 
         num_filled = round(position/qty)
 
-        prices = [median + interval*(i+1) for i in range(len(num_filled))]
+        prices = [median + interval*(i+1) for i in range(num_filled)]
 
         return self.req.place_closing_orders(side, prices, qty)
 
@@ -172,6 +172,10 @@ class Algorithm:
         # Set initial booleans.
         orders_set = False
         closing = False
+
+        # Await connection.
+        while self.req._test_sub() == {}:
+            time.sleep(1)
 
         while True:
 
