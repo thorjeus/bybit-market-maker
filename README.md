@@ -1,6 +1,8 @@
 # bybit-market-maker
 A very primitive Python-based market maker bot for Bybit, meant to be used a sample. Users can fork this repository and customize their own algorithms. Uses the [`pybit`](https://github.com/verata-veritatis/pybit) module.
 
+[![Python 3.6](https://img.shields.io/badge/python-3.6%20|%203.7%20|%203.8-blue.svg)](https://www.python.org/downloads/)
+
 ![Market Maker](https://i.imgur.com/XZc8tUg.png)
 
 ## Usage
